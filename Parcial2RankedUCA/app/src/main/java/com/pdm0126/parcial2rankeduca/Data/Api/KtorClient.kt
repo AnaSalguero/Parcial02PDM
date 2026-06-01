@@ -1,6 +1,7 @@
 package com.pdm0126.parcial2rankeduca.Data.Api
 
 import android.util.Log
+import com.pdm0126.parcial2rankeduca.BuildConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -38,7 +39,7 @@ object KtorClient {
     // Configuración aplicada a todas las peticiones
     defaultRequest {
       url(BASE_URL)
-      header(HttpHeaders.Authorization,"Bearer ${BuildConfig.apiToken}")
+      header(HttpHeaders.Authorization,"Bearer ${BuildConfig.API_TOKEN}")
       header(HttpHeaders.Accept, "application/json")
     }
   }

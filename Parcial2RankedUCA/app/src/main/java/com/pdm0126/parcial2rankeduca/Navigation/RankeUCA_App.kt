@@ -1,12 +1,13 @@
-package com.pdm0126.parcial2rankeduca.Navigation
+package com.pdm0126.parcial2rankedduca.Navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.pdm0126.parcial2rankeduca.Navigation.Routes
 import com.pdm0126.parcial2rankeduca.Screens.Home.HomeScreen
 import com.pdm0126.parcial2rankeduca.Screens.Results.ResultScreen
-import com.pdmcourse2026.basictemplate.screens.home.HomeScreen
+import com.pdm0126.parcial2rankeduca.Screens.Home.HomeScreen
 
 @Composable
 fun RankedUCA_App() {
@@ -17,7 +18,7 @@ fun RankedUCA_App() {
     onBack = { backStack.removeLastOrNull() },
     entryProvider = entryProvider {
       entry<Routes.Home> {
-        HomeScreen(navResults = {
+        HomeScreen(navResult = {
           backStack.add(Routes.Results)
         })
       }

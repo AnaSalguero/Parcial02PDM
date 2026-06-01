@@ -39,15 +39,17 @@ fun HomeScreen(navResult: () -> Unit, viewModel: HomeScreenViewModel=viewModel()
   ) { innerPadding ->
     Column(modifier = Modifier.padding(innerPadding)) {
       if (loading){
-        Column(modifier = Modifier.padding(padding).fillMaxSize(),
+        Column(modifier = Modifier.fillMaxSize(),
           verticalArrangement = Arrangement.Center,
           horizontalAlignment = Alignment.CenterHorizontally) {
           CircularProgressIndicator()
         }
+      }else{
+        Button(onClick = {navResult()}){
+          Text("Ir a resultados")
+        }
       }
-      Button(onClick = {navResult()}){
-        Text("Ir a resultados")
-      }
+
     }
   }
 }
