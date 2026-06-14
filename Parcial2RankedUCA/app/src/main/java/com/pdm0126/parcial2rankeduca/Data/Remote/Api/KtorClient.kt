@@ -1,4 +1,4 @@
-package com.pdm0126.parcial2rankeduca.Data.Api
+package com.pdm0126.parcial2rankeduca.Data.Remote.Api
 
 import android.util.Log
 import com.pdm0126.parcial2rankeduca.BuildConfig

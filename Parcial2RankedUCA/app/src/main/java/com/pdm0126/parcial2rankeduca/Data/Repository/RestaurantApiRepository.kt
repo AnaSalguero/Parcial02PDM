@@ -1,10 +1,10 @@
 package com.pdm0126.parcial2rankeduca.Data.Repository
 
-import com.pdm0126.parcial2rankeduca.Data.Api.KtorClient
-import com.pdm0126.parcial2rankeduca.Data.Restaurants.PostRestaurantsVoteDTO
-import com.pdm0126.parcial2rankeduca.Data.Restaurants.RestaurantsOptionDTO
-import com.pdm0126.parcial2rankeduca.Data.Restaurants.toModel
-import com.pdm0126.parcial2rankeduca.Model.RestaurantOptions
+import com.pdm0126.parcial2rankeduca.Data.Remote.Api.KtorClient
+import com.pdm0126.parcial2rankeduca.Data.Remote.Api.Restaurants.PostRestaurantsVoteDTO
+import com.pdm0126.parcial2rankeduca.Data.Remote.Api.Restaurants.RestaurantsOptionDTO
+import com.pdm0126.parcial2rankeduca.Data.Remote.Api.Restaurants.toModel
+import com.pdm0126.parcial2rankeduca.Model.RestaurantOption
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.post
@@ -14,10 +14,9 @@ import io.ktor.http.contentType
 
 
 class RestaurantApiRepository: RestaurantRepository {
-    override suspend fun getRestaurantOptions(): Result<List<RestaurantOptions>> {
+    override suspend fun getRestaurantOptions(): Result<List<RestaurantOption>> {
         try{
             val response: List<RestaurantsOptionDTO> = KtorClient.client.get("options").body()
-
             return Result.success(response.map { resDTO -> resDTO.toModel() })
         }catch(e: Exception){
             return Result.failure(e)

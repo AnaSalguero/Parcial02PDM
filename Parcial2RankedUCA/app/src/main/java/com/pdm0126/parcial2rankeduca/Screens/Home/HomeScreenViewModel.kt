@@ -4,14 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pdm0126.parcial2rankeduca.Data.Repository.RestaurantApiRepository
 import com.pdm0126.parcial2rankeduca.Data.Repository.RestaurantRepository
-import com.pdm0126.parcial2rankeduca.Model.RestaurantOptions
+import com.pdm0126.parcial2rankeduca.Data.Model.Option
+import com.pdm0126.parcial2rankeduca.Model.RestaurantOption
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class HomeScreenViewModel: ViewModel() {
     private val restRepository : RestaurantRepository = RestaurantApiRepository()
-    private val _restOpt = MutableStateFlow<List<RestaurantOptions>>(emptyList())
+    private val _restOpt = MutableStateFlow<List<RestaurantOption>>(emptyList())
     val restOpt = _restOpt.asStateFlow()
 
     private val _loading = MutableStateFlow<Boolean>(true)

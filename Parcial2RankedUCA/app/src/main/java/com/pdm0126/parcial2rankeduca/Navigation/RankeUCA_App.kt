@@ -31,6 +31,4 @@ fun RankedUCA_App() {
       }
     },
   )
-
-
 }

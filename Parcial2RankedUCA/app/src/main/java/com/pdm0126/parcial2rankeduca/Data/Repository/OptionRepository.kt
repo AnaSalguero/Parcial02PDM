@@ -1,0 +1,10 @@
+package com.pdm0126.parcial2rankeduca.Data.Repository
+
+import com.pdm0126.parcial2rankeduca.Data.Model.Option
+import kotlinx.coroutines.flow.Flow
+
+interface OptionRepository{
+    fun getOptions(): Flow<List<Option>>
+    suspend fun addOption(option: Option)
+    suspend fun deleteOption(option: Option)
+}
