@@ -12,9 +12,10 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import com.pdm0126.parcial2rankeduca.Data.RankedUcaApplication
-class OptionsViewModel(private val optionRepository: OptionRepository) : ViewModel(){
+class OptionsViewModel(private val optionRepository: OptionRepository,
+                       private val questionId: Int) : ViewModel(){
     val options: StateFlow<List<Option>> =
-        optionRepository.getOptions()
+        optionRepository.getOptions(questionId)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),
@@ -23,7 +24,7 @@ class OptionsViewModel(private val optionRepository: OptionRepository) : ViewMod
 
     fun addOption(name: String, imageUrl: String) {
         viewModelScope.launch {
-            optionRepository.addOption(Option(name = name, imageUrl = imageUrl))
+            optionRepository.addOption(name, imageUrl, questionId)
         }
     }
 
@@ -34,10 +35,10 @@ class OptionsViewModel(private val optionRepository: OptionRepository) : ViewMod
     }
 
     companion object {
-        val Factory = viewModelFactory {
+        fun provideFactory(questionId: Int) = viewModelFactory {
             initializer {
                 val app = this[APPLICATION_KEY] as RankedUcaApplication
-                OptionsViewModel(app.appProvider.provideOptionRepository())
+                OptionsViewModel(app.appProvider.provideOptionRepository(), questionId)
             }
         }
     }

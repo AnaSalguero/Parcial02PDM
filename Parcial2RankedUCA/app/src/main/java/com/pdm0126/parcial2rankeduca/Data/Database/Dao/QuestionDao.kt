@@ -1,0 +1,24 @@
+package com.pdm0126.parcial2rankeduca.Data.Database.Dao
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
+import com.pdm0126.parcial2rankeduca.Data.Database.Entities.QuestionEntity
+import com.pdm0126.parcial2rankeduca.Data.Database.Entities.QuestionWithOptions
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface QuestionDao {
+    @Transaction
+    @Query("SELECT * FROM questions")
+    fun getQuestionsWithOptions(): Flow<List<QuestionWithOptions>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertQuestion(question: QuestionEntity)
+
+    @Delete
+    suspend fun deleteQuestion(question: QuestionEntity)
+}
