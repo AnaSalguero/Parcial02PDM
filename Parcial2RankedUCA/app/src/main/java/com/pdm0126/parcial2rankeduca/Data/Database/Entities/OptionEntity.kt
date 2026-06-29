@@ -21,15 +21,15 @@ import com.pdm0126.parcial2rankeduca.Data.Model.Option
 data class OptionEntity(
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0,
-    val name:String,
-    val imageUrl: String,
+    val value:String,
+    val imageUrl: String?= null,
     val questionId: Int,
 )
 
 fun OptionEntity.toModel(): Option {
     return Option (
         id=id,
-        name = name,
+        value = value,
         imageUrl = imageUrl,
         questionId = questionId,
     )

@@ -11,7 +11,7 @@ import com.pdm0126.parcial2rankeduca.Data.Database.Entities.QuestionEntity
 
 @Database(
     entities = [QuestionEntity::class, OptionEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

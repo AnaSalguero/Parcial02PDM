@@ -28,8 +28,8 @@ android {
         applicationId = "com.pdm0126.parcial2rankeduca"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "API_TOKEN", "\"$apiToken\"")

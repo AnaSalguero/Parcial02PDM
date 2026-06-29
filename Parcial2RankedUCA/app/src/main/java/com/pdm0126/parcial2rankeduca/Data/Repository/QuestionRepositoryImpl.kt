@@ -22,4 +22,8 @@ class QuestionRepositoryImpl(private val questionDao: QuestionDao): QuestionRepo
     override suspend fun deleteQuestion(question: Question) {
         questionDao.deleteQuestion(question.toEntity())
     }
+
+    override suspend fun updateQuestion(question: Question) {
+        questionDao.updateQuestion(question.toEntity())
+    }
 }
