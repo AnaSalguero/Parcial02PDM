@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun LoginScreen(){
-    Column(
+/*    Column(
         modifier = Modifier.fillMaxSize().padding(24.dp),
         verticalArrangement = Arrangement.Center
     ) {
@@ -58,4 +58,5 @@ fun LoginScreen(){
         }
     }
 }
+*/
 }

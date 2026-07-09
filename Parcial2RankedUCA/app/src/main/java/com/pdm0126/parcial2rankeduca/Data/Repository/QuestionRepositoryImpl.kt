@@ -15,8 +15,8 @@ class QuestionRepositoryImpl(private val questionDao: QuestionDao): QuestionRepo
         }
     }
 
-    override suspend fun addQuestion(title: String) {
-        questionDao.insertQuestion(QuestionEntity(title = title))
+    override suspend fun addQuestion(title: String, id: Int) {
+        questionDao.insertQuestion(QuestionEntity(title = title, id = id))
     }
 
     override suspend fun deleteQuestion(question: Question) {

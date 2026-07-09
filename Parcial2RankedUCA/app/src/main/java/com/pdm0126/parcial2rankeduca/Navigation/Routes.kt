@@ -12,6 +12,7 @@ sealed class Routes: NavKey{
     data object Question: Routes()
     @Serializable
     data class Option(val questionId:Int): Routes()
-
+    @Serializable
+    data object Menu : Routes()
 }
 

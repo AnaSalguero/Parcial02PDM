@@ -22,5 +22,5 @@ interface OptionDao {
     suspend fun deleteOption(option: OptionEntity)
 
     @Update
-    suspend fun updateOption(option: OptionEntity)
+    suspend fun updateOption(option: List<OptionEntity>)
 }

@@ -6,8 +6,8 @@ import com.pdm0126.parcial2rankeduca.Data.Model.Question
 
 @Entity(tableName = "questions")
 data class QuestionEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    @PrimaryKey
+    val id: Int,
     val title: String,
 )
 

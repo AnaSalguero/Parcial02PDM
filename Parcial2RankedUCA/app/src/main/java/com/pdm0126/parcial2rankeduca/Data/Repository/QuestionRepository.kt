@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface QuestionRepository {
     fun getQuestion(): Flow<List<Question>>
-    suspend fun addQuestion(title:String)
+    suspend fun addQuestion(title:String, id:Int)
     suspend fun deleteQuestion(question: Question)
     suspend fun updateQuestion(question: Question)
 }

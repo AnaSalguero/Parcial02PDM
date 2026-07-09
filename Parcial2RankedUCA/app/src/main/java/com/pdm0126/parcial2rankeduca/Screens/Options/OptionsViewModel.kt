@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import com.pdm0126.parcial2rankeduca.Data.RankedUcaApplication
+import com.pdm0126.parcial2rankeduca.RankedUcaApplication
 class OptionsViewModel(private val optionRepository: OptionRepository,
                        private val questionId: Int) : ViewModel(){
     val options: StateFlow<List<Option>> =

@@ -31,7 +31,7 @@ import coil3.compose.AsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navResult: () -> Unit, viewModel: HomeScreenViewModel=viewModel()) {
+fun HomeScreen(navBack:()->Unit, navResult: () -> Unit, viewModel: HomeScreenViewModel=viewModel()) {
   val resOpt by viewModel.restOpt.collectAsState()
   val loading by viewModel.loading.collectAsState()
   val error by viewModel.error.collectAsState()

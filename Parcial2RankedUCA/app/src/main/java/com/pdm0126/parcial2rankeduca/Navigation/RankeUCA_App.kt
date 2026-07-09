@@ -7,23 +7,38 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.pdm0126.parcial2rankeduca.Navigation.Routes
 import com.pdm0126.parcial2rankeduca.Screens.Home.HomeScreen
+import com.pdm0126.parcial2rankeduca.Screens.MenuScreen.MenuScreen
 import com.pdm0126.parcial2rankeduca.Screens.Options.OptionsScreen
 import com.pdm0126.parcial2rankeduca.Screens.Results.ResultScreen
 import com.pdm0126.parcial2rankeduca.Screens.Questions.QuestionScreen
 
 @Composable
 fun RankedUCA_App() {
-  //Para probar solamente la conección entre las preguntas y opciones se hara que la app inicie en la pantalla de preguntas
-  val backStack = rememberNavBackStack(Routes.Question)
+  val backStack = rememberNavBackStack(Routes.Menu)
 
   NavDisplay(
     backStack = backStack,
     onBack = { backStack.removeLastOrNull() },
     entryProvider = entryProvider {
+      entry<Routes.Menu> {
+        MenuScreen(
+          navToHome = {
+            backStack.add(Routes.Home)
+          },
+          navToQuestion = {
+            backStack.add(Routes.Question)
+          }
+        )
+      }
       entry<Routes.Home> {
-        HomeScreen(navResult = {
-          backStack.add(Routes.Results)
-        })
+        HomeScreen(
+          navResult = {
+            backStack.add(Routes.Results)
+          },
+          navBack = {
+            backStack.removeLastOrNull()
+          }
+        )
       }
       entry<Routes.Results>{
         ResultScreen(
@@ -46,6 +61,9 @@ fun RankedUCA_App() {
         QuestionScreen(
           onQuestionClick = { questionId->
             backStack.add(Routes.Option(questionId))
+          },
+          navBack = {
+            backStack.removeLastOrNull()
           }
         )
       }

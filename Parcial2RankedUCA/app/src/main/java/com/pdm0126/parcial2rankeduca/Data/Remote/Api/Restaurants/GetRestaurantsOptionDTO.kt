@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class RestaurantsOptionDTO(
     val id: Int,
     val name: String,
-    val imageUrl: String,
+    val imageUrl: String?,
     val votes: Int
 )
 fun RestaurantsOptionDTO.toModel(): RestaurantOption{

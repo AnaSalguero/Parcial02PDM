@@ -123,13 +123,13 @@ fun OptionsScreen(
                             ListItem(
                                 headlineContent = {
                                     Text(
-                                        text = option.name,
+                                        text = option.value,
                                         style = MaterialTheme.typography.titleMedium
                                     )
                                 },
                                 supportingContent = {
                                     Text(
-                                        text = option.imageUrl,
+                                        text = option.imageUrl.toString(),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
@@ -138,7 +138,7 @@ fun OptionsScreen(
                                     IconButton(onClick = { viewModel.deleteOption(option) }) {
                                         Icon(
                                             imageVector = Icons.Default.DeleteOutline,
-                                            contentDescription = "Borrar ${option.name}",
+                                            contentDescription = "Borrar ${option.value}",
                                             tint = MaterialTheme.colorScheme.error
                                         )
                                     }

@@ -44,7 +44,7 @@ import com.pdm0126.parcial2rankeduca.Screens.Options.OptionsScreen
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuestionScreen(viewModel: QuestionsViewModel = viewModel(factory = QuestionsViewModel .Factory),onQuestionClick:(Int)->Unit){
+fun QuestionScreen(viewModel: QuestionsViewModel = viewModel(factory = QuestionsViewModel .Factory),onQuestionClick:(Int)->Unit,navBack:()->Unit){
 
     val questions by viewModel.question.collectAsStateWithLifecycle()
     var showSheet by rememberSaveable { mutableStateOf(false) }
@@ -116,7 +116,7 @@ fun QuestionScreen(viewModel: QuestionsViewModel = viewModel(factory = Questions
                                         horizontalArrangement = Arrangement.spacedBy(4.dp),
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
-                                        IconButton(onClick = { viewModel.deleteOption(quest) }) {
+                                        IconButton(onClick = { viewModel.deleteQuestion(quest.id) }) {
                                             Icon(
                                                 imageVector = Icons.Default.DeleteOutline,
                                                 contentDescription = "Borrar ${quest.title}",

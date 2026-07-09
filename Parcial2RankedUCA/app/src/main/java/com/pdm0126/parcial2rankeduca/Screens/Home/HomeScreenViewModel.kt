@@ -39,7 +39,7 @@ class HomeScreenViewModel: ViewModel() {
                 _restOpt.value = res
             }.onFailure {
                     error ->
-                _error.value = "Parece que ha habido un error, por que no intentas de nuevo?"
+                _error.value = "Parece que ha habido un error, por que no intentas de nuevo? error $error"
             }
             _loading.value = false
         }
